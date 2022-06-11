@@ -7,12 +7,12 @@ import { FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./new-field.component.css']
 })
 export class NewFieldComponent implements OnInit {
-
+  /*
   fields = this.formBuilder.group({
       fieldsSpec: this.formBuilder.array([
       this.formBuilder.control('')
     ])
-  });
+  });*/
 
   constructor(private formBuilder: FormBuilder) { }
 
