@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { fieldTypes } from 'src/app/constants/feildTypeValues';
+import { Field } from 'src/app/interfaces/field';
+import { FieldType } from 'src/app/interfaces/fieldType';
 
 @Component({
   selector: 'app-new-field',
@@ -7,16 +10,31 @@ import { FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./new-field.component.css']
 })
 export class NewFieldComponent implements OnInit {
-  /*
-  fields = this.formBuilder.group({
-      fieldsSpec: this.formBuilder.array([
-      this.formBuilder.control('')
-    ])
-  });*/
+
+  @Output() newFieldEvent = new EventEmitter<Field>();
+
+  types: FieldType[] = fieldTypes;
+
+  fieldForm = this.formBuilder.group({
+    title: '',
+    demoTitle: '',
+    type: '',
+    description: '',
+    required: '',
+    validation: '',
+    displayFormat: '',
+    accessLevel: ''
+  });
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmitFieldForm(){
+    console.warn('Your new field has submitted in child: ', this.fieldForm.value);
+    this.newFieldEvent.emit(this.fieldForm.value);
+    this.fieldForm.reset();
   }
 
 }

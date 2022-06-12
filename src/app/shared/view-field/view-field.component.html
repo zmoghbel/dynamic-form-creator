@@ -1,0 +1,59 @@
+
+<div [ngSwitch]="field.type">
+
+    <mat-form-field appearance="fill" *ngSwitchCase="3">
+        <mat-label>{{ field.title }}</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngSwitchCase="4">
+        <mat-label>{{ field.title }}</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngSwitchCase="5">
+        <mat-label>{{ field.title }}</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>{{ field.title }}</mat-label>
+    <mat-select>
+        <mat-option 
+        *ngFor="let option of field.typeOptions" 
+        [value]="option">
+        {{ option }}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="field.title" *ngSwitchCase="7">
+        <mat-radio-button 
+        *ngFor="let option of field.typeOptions" 
+        [value]="option">
+        {{ option }}
+        </mat-radio-button>
+    </mat-radio-group>
+      
+    <section class="example-section" *ngSwitchCase="8">
+        <h4>{{ field.title }} </h4>
+        <p *ngFor="let option of field.typeOptions" ><mat-checkbox>{{ option }}</mat-checkbox></p>
+    </section>
+      
+    <mat-form-field appearance="fill" *ngSwitchDefault>
+        <mat-label>{{ field.title }}</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+</div>
+   
+
