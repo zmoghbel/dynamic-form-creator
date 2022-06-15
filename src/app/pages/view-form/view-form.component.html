@@ -1,0 +1,25 @@
+<div class="nfContainer">
+    <mat-form-field appearance="fill">
+        <mat-label>Form Title</mat-label>
+        <input matInput [value]="form.title">
+    </mat-form-field>
+
+    <app-build-form [fieldsArr] = "form.fields"></app-build-form>
+
+    <app-form-auth></app-form-auth>
+    
+    <div class="nfButton">
+
+        <button mat-stroked-button color="primary" 
+           routerLink="/edit-form">Edit
+        </button>
+
+        <button mat-stroked-button color="warn" 
+            *ngIf="form.type == 2" 
+            (click)="onDeleteClick(form.id)">
+            Delete
+        </button>
+
+    </div>
+</div>
+  

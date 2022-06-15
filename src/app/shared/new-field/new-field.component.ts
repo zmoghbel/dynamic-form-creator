@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { fieldTypes } from 'src/app/constants/feildTypeValues';
-import { Field } from 'src/app/interfaces/field';
+import { Field } from 'src/app/models/field';
 import { FieldType } from 'src/app/interfaces/fieldType';
 
 @Component({
@@ -16,8 +16,8 @@ export class NewFieldComponent implements OnInit {
   types: FieldType[] = fieldTypes;
 
   fieldForm = this.formBuilder.group({
-    title: '',
-    demoTitle: '',
+    title: ['',Validators.required],
+    demoTitle: ['',Validators.required],
     type: '',
     description: '',
     required: '',
@@ -33,8 +33,10 @@ export class NewFieldComponent implements OnInit {
 
   onSubmitFieldForm(){
     console.warn('Your new field has submitted in child: ', this.fieldForm.value);
-    this.newFieldEvent.emit(this.fieldForm.value);
-    this.fieldForm.reset();
+    if(this.fieldForm.valid){
+      this.newFieldEvent.emit(this.fieldForm.value);
+      this.fieldForm.reset();
+    }    
   }
 
 }

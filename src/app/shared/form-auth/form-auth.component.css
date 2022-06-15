@@ -1,0 +1,29 @@
+.radioButton {
+    border-style: outset;
+    padding: 20px;
+    width: 100%;
+    padding-top: 10px ;
+}
+
+.radioButton mat-radio-button{
+    margin: 20px;
+}
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  .formAuth {
+    border-style: outset;
+  }

@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   appTitle = 'Dynamic Form Creator';
+  public isAuthenticated = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public logout(): void {
+    // todo
   }
 
 }

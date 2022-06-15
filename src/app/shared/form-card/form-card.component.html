@@ -1,0 +1,9 @@
+
+<mat-card>{{ form.title }}
+    <mat-card-actions align="end">
+        <button mat-button (click)="onViewClick(form.id)">View</button>
+        <a routerLink="/edit-form"><button mat-button>Edit</button></a>
+        <button mat-button *ngIf="form.type == 2" (click)="onDeleteClick(form.id)">Delete</button>
+      </mat-card-actions>
+</mat-card>
+<br>

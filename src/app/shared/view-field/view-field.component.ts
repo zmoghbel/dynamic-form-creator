@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Field } from 'src/app/interfaces/field';
+import { Field } from 'src/app/models/field';
 
 @Component({
   selector: 'app-view-field',

@@ -2,7 +2,7 @@
     <h2> Creat New Form </h2>
     <mat-form-field appearance="fill">
         <mat-label>Form Title</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="formTitle" required >
     </mat-form-field>
 
     <app-build-form [fieldsArr] = "feildsArr"></app-build-form>
@@ -21,9 +21,11 @@
           <app-new-field (newFieldEvent)="addField($event)"></app-new-field>
         </mat-expansion-panel>
     </mat-accordion>
+
+    <app-form-auth></app-form-auth>
     
     <div class="nfButton">
-        <button mat-raised-button color="primary">Save Form</button>
+        <button mat-raised-button color="primary" (click)="addForm()">Save Form</button>
         <button mat-raised-button color="warn">Discard</button>
     </div>
 </div>

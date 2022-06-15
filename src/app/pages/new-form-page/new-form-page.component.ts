@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Field } from 'src/app/interfaces/field';
+import { Field } from 'src/app/models/field';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-new-form-page',
@@ -9,8 +10,9 @@ import { Field } from 'src/app/interfaces/field';
 export class NewFormPageComponent implements OnInit {
   
   feildsArr: Field[] = [];
+  formTitle: string = '';
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +21,20 @@ export class NewFormPageComponent implements OnInit {
     //console.log("This is Parent: " , field);
     this.feildsArr.push(field);
     console.log("This is Parent: " , this.feildsArr);
+  }
+
+  addForm(){
+    this.apiService.addForm({title: this.formTitle, type: 2 , fields: this.feildsArr})
+    .subscribe({
+      next:(res)=>{
+        alert("Form added successfully");
+        this.feildsArr = [];
+        this.formTitle = '';
+      },
+      error:()=>{
+        alert("Error while adding the Form")
+      }
+    });
   }
 
 }

@@ -1,5 +1,17 @@
-<p>
-   <mat-toolbar>
-      <span>{{appTitle}}</span>
-    </mat-toolbar>
-  </p>
+
+   <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+      <span>
+         <button mat-button routerLink="/">{{appTitle}}</button>
+       </span>
+       <div fxLayout="row" fxShow="false" fxShow.gt-sm align="end">
+         <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
+         <button mat-button routerLink="/login" *ngIf="!isAuthenticated">
+           <mat-icon>power_settings_new</mat-icon>
+           Login
+         </button>
+         <button mat-button *ngIf="isAuthenticated" (click)="logout()">
+           <mat-icon>exit_to_app</mat-icon>
+           Logout
+         </button>
+       </div>
+     </mat-toolbar>

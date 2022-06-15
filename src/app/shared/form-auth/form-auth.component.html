@@ -1,0 +1,22 @@
+<mat-radio-group aria-label="Select an option" class="radioButton" [(ngModel)]="formAuth">
+    <mat-radio-button value="0" checked>public</mat-radio-button>
+    <mat-radio-button value="1">private</mat-radio-button>
+</mat-radio-group>
+
+<div class="formAuth" *ngIf="formAuth == 1">
+    <section class="example-section">
+        <label class="example-margin">Admin:</label>
+        <mat-checkbox class="example-margin" >view</mat-checkbox>
+        <mat-checkbox class="example-margin" >Edit</mat-checkbox>
+        <mat-checkbox class="example-margin" >Delete</mat-checkbox>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section class="example-section">
+        <label class="example-margin">Other User:</label>
+        <mat-checkbox class="example-margin" >view</mat-checkbox>
+        <mat-checkbox class="example-margin" >Edit</mat-checkbox>
+        <mat-checkbox class="example-margin" >Delete</mat-checkbox>
+    </section>
+</div>
