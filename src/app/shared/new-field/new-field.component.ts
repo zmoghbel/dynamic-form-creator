@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { fieldTypes } from 'src/app/constants/feildTypeValues';
 import { Field } from 'src/app/models/field';
 import { FieldType } from 'src/app/interfaces/fieldType';
@@ -14,6 +14,7 @@ export class NewFieldComponent implements OnInit {
   @Output() newFieldEvent = new EventEmitter<Field>();
 
   types: FieldType[] = fieldTypes;
+  hsaOption: boolean = false;
 
   fieldForm = this.formBuilder.group({
     title: ['',Validators.required],
@@ -23,12 +24,23 @@ export class NewFieldComponent implements OnInit {
     required: '',
     validation: '',
     displayFormat: '',
-    accessLevel: ''
+    accessLevel: '',
+    typeOptions: this.formBuilder.array([
+      this.formBuilder.control('')
+    ])
   });
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  get typeOptions() {
+    return this.fieldForm.get('typeOptions') as FormArray;
+  }
+
+  addTypeOption() {
+    this.typeOptions.push(this.formBuilder.control(''));
   }
 
   onSubmitFieldForm(){

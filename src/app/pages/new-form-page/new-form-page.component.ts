@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Field } from 'src/app/models/field';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,7 +13,9 @@ export class NewFormPageComponent implements OnInit {
   feildsArr: Field[] = [];
   formTitle: string = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +33,7 @@ export class NewFormPageComponent implements OnInit {
         alert("Form added successfully");
         this.feildsArr = [];
         this.formTitle = '';
+        this.router.navigate(['/']);
       },
       error:()=>{
         alert("Error while adding the Form")

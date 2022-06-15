@@ -24,62 +24,18 @@
           "validation": null,
           "displayFormat": null,
           "accessLevel": null
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "فرم دعوت به مصاحبه",
-      "type": 1,
-      "fields": [
-        {
-          "title": "date",
-          "demoTitle": "Date",
-          "type": 4,
-          "description": "date",
-          "required": true,
-          "validation": "",
-          "displayFormat": "",
-          "accessLevel": ""
         },
         {
-          "title": "title",
-          "demoTitle": "Title",
-          "type": 2,
-          "description": null,
-          "required": true,
-          "validation": null,
-          "displayFormat": null,
-          "accessLevel": null
-        }
-      ]
-    },
-    {
-      "title": "test 1",
-      "type": 2,
-      "fields": [
-        {
-          "title": "name",
-          "demoTitle": "First name",
-          "type": 2,
-          "description": "",
-          "required": "",
-          "validation": "",
-          "displayFormat": "",
-          "accessLevel": ""
-        },
-        {
-          "title": "email",
-          "demoTitle": "Email",
-          "type": 2,
+          "title": "text",
+          "demoTitle": "Text",
+          "type": 3,
           "description": null,
           "required": null,
           "validation": null,
           "displayFormat": null,
           "accessLevel": null
         }
-      ],
-      "id": 3
+      ]
     },
     {
       "title": "test 2",

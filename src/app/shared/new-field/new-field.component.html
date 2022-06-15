@@ -12,15 +12,27 @@
                 <input matInput formControlName="demoTitle">
             </mat-form-field>
         </section>
-
-        <mat-form-field appearance="fill">
+    
+        <mat-form-field appearance="fill" >
             <mat-label>Type</mat-label>
-            <mat-select name="type" formControlName="type">
+            <mat-select name="type" formControlName="type" #type>
             <mat-option *ngFor="let type of types" [value]="type.id">
                 {{type.value}}
             </mat-option>
             </mat-select>
         </mat-form-field>
+
+            <div formArrayName="typeOptions" *ngIf="type.value > 5">
+                <h2>Type Options</h2>
+                <button type="button" (click)="addTypeOption()">+ Add another option</button>
+              
+                <div *ngFor="let option of typeOptions.controls; let i=index">
+                  <!-- The repeated TypeOption template -->
+                  <label for="option-{{ i }}">Option:</label>
+                  <input id="option-{{ i }}" type="text" [formControlName]="i">
+                </div>
+            </div>
+
 
         <section>
             <mat-form-field appearance="fill">
